@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigos Futebol Clube</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+
+  <!-- TELA DE LOGIN -->
+  <div id="tela-login" class="login-container">
+    <div class="login-card">
+      <img src="escudo.jpg" alt="Escudo Amigos Futebol Clube" class="escudo-login">
+      <h2>AMIGOS F.C.</h2>
+      <p>Acesse sua conta para continuar</p>
+      
+      <form id="form-login">
+        <div class="input-group">
+          <label for="email">E-mail ou Usuário</label>
+          <input type="text" id="email" placeholder="seu@email.com" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="******" required>
+        </div>
+
+        <button type="submit" class="btn-entrar">Entrar</button>
+      </form>
+
+      <div class="dica-acesso">
+        <p><strong>Contas de teste:</strong></p>
+        <p>🔑 Admin: <code>admin@afc.com</code> / <code>123</code></p>
+        <p>⚽ Jogador (ex: DANDÃO): <code>dandao@afc.com</code> / <code>123</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAINEL PRINCIPAL COM SIDEBAR AZUL -->
+  <div id="app-principal" class="app-layout hidden">
+    
+    <!-- COLUNA LATERAL (SIDEBAR AZUL) -->
+    <aside class="sidebar">
+      <div class="brand-sidebar">
+        <img src="escudo.jpg" alt="Escudo" class="escudo-sidebar">
+        <div>
+          <h1>AMIGOS F.C.</h1>
+          <p id="saudacao-usuario">Bem-vindo!</p>
+        </div>
+      </div>
+
+      <nav class="nav-sidebar">
+        <button class="tab-btn active" data-tab="tab-escalacao">⚽ Escalação</button>
+        <button class="tab-btn" data-tab="tab-elenco">👥 Elenco</button>
+        <button class="tab-btn" data-tab="tab-estatisticas">📊 Estatísticas</button>
+        <button class="tab-btn" data-tab="tab-financeiro">💰 Presença & Mensalidade</button>
+        <button class="tab-btn" data-tab="tab-agenda">📅 Próxima Pelada</button>
+      </nav>
+
+      <button id="btn-logout" class="btn-logout-sidebar">🚪 Sair do App</button>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (DIREITA) -->
+    <main class="main-content">
+      
+      <!-- CARTÃO DE RESUMO INDIVIDUAL DO JOGADOR (EXIBIDO APENAS PARA JOGADORES) -->
+      <div id="card-perfil-jogador" class="card hidden" style="margin-bottom: 24px; border-left: 6px solid #0052cc;">
+        <h2>👤 Meu Painel de Atleta</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 15px;">
+          <div style="background: #0f172a; padding: 12px; border-radius: 10px; text-align: center;">
+            <p style="font-size: 11px; color: #94a3b8; font-weight: bold;">MENSALIDADE</p>
+            <p id="perfil-mensalidade" style="font-size: 16px; font-weight: 800; margin-top: 4px;">Pendente</p>
+          </div>
+          <div style="background: #0f172a; padding: 12px; border-radius: 10px; text-align: center;">
+            <p style="font-size: 11px; color: #94a3b8; font-weight: bold;">GOLS</p>
+            <p id="perfil-gols" style="font-size: 18px; font-weight: 800; margin-top: 4px;">0</p>
+          </div>
+          <div style="background: #0f172a; padding: 12px; border-radius: 10px; text-align: center;">
+            <p style="font-size: 11px; color: #94a3b8; font-weight: bold;">ASSISTÊNCIAS</p>
+            <p id="perfil-assist" style="font-size: 18px; font-weight: 800; margin-top: 4px;">0</p>
+          </div>
+          <div style="background: #0f172a; padding: 12px; border-radius: 10px; text-align: center;">
+            <p style="font-size: 11px; color: #94a3b8; font-weight: bold;">PRESENÇAS / FALTAS</p>
+            <p id="perfil-frequencia" style="font-size: 15px; font-weight: 800; margin-top: 4px;">0 / 0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABA 1: ESCALAÇÃO -->
+      <section id="tab-escalacao" class="tab-content active">
+        <div id="badge-admin-tag" class="badge-admin hidden">Modo Administrador</div>
+        
+        <div class="card">
+          <h2>👥 Jogadores Disponíveis</h2>
+          <div id="disponiveis" class="lista-jogadores"></div>
+        </div>
+
+        <div class="times-grid">
+          <div class="card time azul">
+            <h2>🔵 Time Azul</h2>
+            <div id="time-azul" class="lista-jogadores time-box"></div>
+          </div>
+
+          <div class="card time preto">
+            <h2>⚫ Time Preto</h2>
+            <div id="time-preto" class="lista-jogadores time-box"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABA 2: ELENCO -->
+      <section id="tab-elenco" class="tab-content hidden">
+        <div id="painel-admin-elenco" class="card hidden" style="margin-bottom: 20px;">
+          <h2>➕ Cadastrar Novo Atleta (Admin)</h2>
+          <form id="form-add-jogador" style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" id="novo-nome-jogador" placeholder="Nome do jogador" required style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white;">
+            <button type="submit" class="btn-entrar" style="width: auto; padding: 10px 20px;">Adicionar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>👥 Lista Geral do Elenco</h2>
+          <p style="margin-bottom: 15px; color: #94a3b8;">Atletas ativos no Amigos F.C.</p>
+          <ul id="lista-elenco-completa" class="lista-simples"></ul>
+        </div>
+      </section>
+
+      <!-- ABA 3: ESTATÍSTICAS -->
+      <section id="tab-estatisticas" class="tab-content hidden">
+        <div id="painel-admin-stats" class="card hidden" style="margin-bottom: 20px;">
+          <h2>⚡ Lançar Gols e Assistências (Admin)</h2>
+          <form id="form-registrar-stats" style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <div class="input-group">
+              <label>Selecione o Jogador</label>
+              <select id="select-jogador-stats"></select>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+              <div class="input-group" style="flex:1;">
+                <label>Gols Adicionados</label>
+                <input type="number" id="input-gols" value="1" min="0">
+              </div>
+              <div class="input-group" style="flex:1;">
+                <label>Assistências</label>
+                <input type="number" id="input-assist" value="0" min="0">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-entrar" style="margin-top: 0;">Salvar Lançamento</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>🏆 Tabela de Artilharia do Campeonato</h2>
+          <table class="tabela-stats">
+            <thead>
+              <tr>
+                <th>Jogador</th>
+                <th>Gols</th>
+                <th>Assistências</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-artilharia"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ABA 4: FINANCEIRO & MENSALIDADES -->
+      <section id="tab-financeiro" class="tab-content hidden">
+        <div id="painel-admin-financeiro" class="card hidden" style="margin-bottom: 20px;">
+          <h2>💰 Controle de Presença e Pagamentos (Admin)</h2>
+          <form id="form-registrar-financeiro" style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <div class="input-group">
+              <label>Selecione o Jogador</label>
+              <select id="select-jogador-financeiro"></select>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <div class="input-group" style="flex:1;">
+                <label>Registrar Frequência</label>
+                <select id="select-frequencia">
+                  <option value="presenca">Marcar Presença (+1)</option>
+                  <option value="falta">Marcar Falta (+1)</option>
+                </select>
+              </div>
+              <div class="input-group" style="flex:1;">
+                <label>Status da Mensalidade</label>
+                <select id="select-mensalidade">
+                  <option value="Pago">Pago ✅</option>
+                  <option value="Pendente">Pendente ❌</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-entrar" style="margin-top: 0;">Atualizar Registro</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>📋 Controle Financeiro e Presença</h2>
+          <table class="tabela-stats">
+            <thead>
+              <tr>
+                <th>Jogador</th>
+                <th>Presenças</th>
+                <th>Faltas</th>
+                <th>Mensalidade</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-financeiro"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ABA 5: PRÓXIMA PELADA -->
+      <section id="tab-agenda" class="tab-content hidden">
+        <div class="card">
+          <h2>📅 Detalhes do Próximo Jogo</h2>
+          <div class="info-pelada">
+            <p><strong>Data:</strong> Próximo Domingo</p>
+            <p><strong>Horário:</strong> 09:00 AM</p>
+            <p><strong>Local:</strong> Arena Amigos F.C.</p>
+          </div>
+          <button class="btn-confirmar">Confirmar Presença ⚽</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
