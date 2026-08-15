@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+:root {
+  --blue-primary: #0052cc;
+  --blue-dark: #090d16;
+  --blue-sidebar: #003d99;
+  --blue-active: #002b80;
+  --card-light: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: #f1f5f9;
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* LAYOUT PRINCIPAL COM SIDEBAR */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* COLUNA LATERAL (SIDEBAR AZUL) */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0052cc 0%, #002b80 100%);
+  color: white;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.brand-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.escudo-sidebar {
+  width: 48px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.brand-sidebar h1 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.brand-sidebar p {
+  font-size: 12px;
+  color: #93c5fd;
+}
+
+/* BOTÕES DA SIDEBAR */
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.tab-btn {
+  background: transparent;
+  color: #dbeafe;
+  border: none;
+  padding: 14px 16px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--blue-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-logout-sidebar {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.btn-logout-sidebar:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* CONTEÚDO À DIREITA */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1000px;
+}
+
+/* TELA DE LOGIN */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 35px 28px;
+  border-radius: 24px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.escudo-login {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0052cc 0%, #0033aa 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dica-acesso {
+  margin-top: 24px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: left;
+  border: 1px dashed #cbd5e1;
+}
+
+/* CARDS E LISTAS */
+.badge-admin {
+  background: #dbeafe;
+  color: var(--blue-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card-light);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+}
+
+.times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.lista-jogadores {
+  min-height: 140px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jogador {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: grab;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lista-simples li {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  list-style: none;
+}
+
+.tabela-stats {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-stats th, .tabela-stats td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* CELULARES (RESPONSIVO) */
+@media (max-width: 768px) {
+  .app-layout { flex-direction: column; }
+  .sidebar { width: 100%; min-height: auto; }
+  .times-grid { grid-template-columns: 1fr; }
+}@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+:root {
+  --blue-primary: #0052cc;
+  --blue-dark: #090d16;
+  --bg-dark: #0f172a;        /* Fundo principal escuro */
+  --card-dark: #1e293b;      /* Fundo dos cartões */
+  --card-border: #334155;    /* Borda dos cartões */
+  --text-light: #f8fafc;     /* Texto principal claro */
+  --text-muted: #94a3b8;     /* Texto secundário */
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* LAYOUT PRINCIPAL COM SIDEBAR */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-dark);
+}
+
+/* COLUNA LATERAL (SIDEBAR AZUL) */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0052cc 0%, #002b80 100%);
+  color: white;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.brand-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.escudo-sidebar {
+  width: 48px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.brand-sidebar h1 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.brand-sidebar p {
+  font-size: 12px;
+  color: #93c5fd;
+}
+
+/* BOTÕES DA SIDEBAR */
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.tab-btn {
+  background: transparent;
+  color: #dbeafe;
+  border: none;
+  padding: 14px 16px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--blue-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-logout-sidebar {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.btn-logout-sidebar:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* CONTEÚDO À DIREITA (MODO ESCURO) */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1000px;
+  background: var(--bg-dark);
+}
+
+/* TELA DE LOGIN */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 35px 28px;
+  border-radius: 24px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  border: 1px solid var(--card-border);
+}
+
+.escudo-login {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+.login-card h2 {
+  color: var(--text-light);
+}
+
+.login-card p {
+  color: var(--text-muted);
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 12px 16px;
+  background: #0f172a;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-light);
+  outline: none;
+}
+
+.input-group input:focus, .input-group select:focus {
+  border-color: var(--blue-primary);
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0052cc 0%, #0033aa 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dica-acesso {
+  margin-top: 24px;
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: left;
+  color: var(--text-muted);
+  border: 1px dashed var(--card-border);
+}
+
+.dica-acesso code {
+  background: #1e293b;
+  color: #60a5fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* CARDS E LISTAS ESCURAS */
+.badge-admin {
+  background: rgba(0, 82, 204, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card-dark);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+}
+
+.card h2 {
+  color: var(--text-light);
+}
+
+.times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.lista-jogadores {
+  min-height: 140px;
+  background: #0f172a;
+  border: 2px dashed var(--card-border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jogador {
+  background: #1e293b;
+  color: var(--text-light);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: grab;
+  border: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.jogador::after {
+  content: ":::";
+  color: var(--text-muted);
+}
+
+.lista-simples li {
+  background: #0f172a;
+  color: var(--text-light);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 8px;
+  list-style: none;
+}
+
+.tabela-stats {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-stats th {
+  background: #0f172a;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.tabela-stats th, .tabela-stats td {
+  padding: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.info-pelada {
+  background: #0f172a;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 15px;
+}
+
+.btn-confirmar {
+  width: 100%;
+  padding: 14px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* CELULARES (RESPONSIVO) */
+@media (max-width: 768px) {
+  .app-layout { flex-direction: column; }
+  .sidebar { width: 100%; min-height: auto; }
+  .times-grid { grid-template-columns: 1fr; }
+}
