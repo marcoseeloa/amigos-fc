@@ -32,7 +32,7 @@ function mostrarSecao(secaoId, elementoClicado) {
   // Exibe a seção clicada
   const secaoAlvo = document.getElementById(secaoId);
   if (secaoAlvo) {
-    secaoAlvo.style.display = 'block';
+    secaoAlvo.style.display = 'flex';
   }
 
   // Ativa o botão selecionado
