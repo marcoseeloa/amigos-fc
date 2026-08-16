@@ -315,4 +315,59 @@ body {
   font-weight: 900;
   margin-top: 2px;
   text-transform: uppercase;
+}/* ESPAÇO PARA O MENU NÃO COBRIR O CONTEÚDO */
+body {
+  padding-bottom: 75px;
+}
+
+.app-container {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* BARRA FIXA NA PARTE DE BAIXO */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background-color: #0b0f19;
+  border-top: 1px solid #1f2937;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 8px;
+}
+
+/* BOTÕES DA BARRA INFERIOR */
+.nav-item {
+  background: none;
+  border: none;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  flex: 1;
+  padding: 6px 0;
+}
+
+.nav-item .icon {
+  font-size: 1.2rem;
+}
+
+.nav-item .label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ÍCONE SELECIONADO (AZUL) */
+.nav-item.active {
+  color: #2563eb;
 }

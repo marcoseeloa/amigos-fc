@@ -50,41 +50,31 @@
       </div>
     </div>
     
-    <!-- BARRA LATERAL / MENU -->
-    <aside class="sidebar">
-      <div class="brand">
-        <img src="escudo.jpg" alt="Escudo" class="logo">
-        <div class="brand-info">
-          <h2>AMIGOS F.C.</h2>
-          <span id="nome-usuario-header">Olá, Marcos</span>
-        </div>
-      </div>
+    <!-- BARRA LATERAL / MENU --
+   <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" onclick="mostrarSecao('escalacao', this)">
+        <span class="icon">🏠</span>
+        <span class="label">INÍCIO</span>
+      </button>
+      <button class="nav-item" onclick="mostrarSecao('presenca', this)">
+        <span class="icon">✅</span>
+        <span class="label">PRESENÇA</span>
+      </button>
+      <button class="nav-item" onclick="mostrarSecao('elenco', this)">
+        <span class="icon">👥</span>
+        <span class="label">TIMES</span>
+      </button>
 
-      <nav class="sidebar-nav">
-        <button class="nav-btn active" onclick="mostrarSecao('escalacao', this)">
-          <span class="icon">⚽</span>
-          <span class="label">Escalação</span>
-        </button>
-        <button class="nav-btn" onclick="mostrarSecao('elenco', this)">
-          <span class="icon">👥</span>
-          <span class="label">Elenco</span>
-        </button>
-        <button class="nav-btn" onclick="mostrarSecao('estatisticas', this)">
-          <span class="icon">📊</span>
-          <span class="label">Estatísticas</span>
-        </button>
-        <button class="nav-btn" onclick="mostrarSecao('presenca', this)">
-          <span class="icon">💰</span>
-          <span class="label">Presença & Mensalidade</span>
-        </button>
-        <button class="nav-btn" onclick="mostrarSecao('proxima-pelada', this)">
-          <span class="icon">📅</span>
-          <span class="label">Próxima Pelada</span>
-        </button>
-      </nav>
-
-      <button class="btn-logout" onclick="fazerLogout()">Sair</button>
-    </aside>
+      <button class="nav-item" onclick="mostrarSecao('estatisticas', this)">
+        <span class="icon">📊</span>
+        <span class="label">HISTÓRICO</span>
+      </button>
+      <button class="nav-item" onclick="fazerLogout()">
+        <span class="icon">👤</span>
+        <span class="label">SAIR</span>
+      </button>
+    </nav>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-content">
