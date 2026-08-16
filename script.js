@@ -1,12 +1,12 @@
 function realizarLogin(event) {
   event.preventDefault();
   
-  const usuario = document.getElementById('usuario').value;
+  const usuarioInput = document.getElementById('usuario').value;
   
-  if (usuario) {
+  if (usuarioInput) {
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('app-principal').style.display = 'flex';
-    document.getElementById('nome-usuario-header').textContent = `Olá, ${usuario}`;
+    document.getElementById('nome-usuario-header').textContent = usuarioInput.toUpperCase();
   }
 }
 
@@ -23,8 +23,8 @@ function mostrarSecao(secaoId, elementoClicado) {
     secao.style.display = 'none';
   });
 
-  // Remove o estado ativo dos botões
-  const botoes = document.querySelectorAll('.nav-btn');
+  // Remove o estado ativo de todos os botões da barra
+  const botoes = document.querySelectorAll('.nav-item');
   botoes.forEach(btn => {
     btn.classList.remove('active');
   });
