@@ -409,4 +409,8 @@ body {
 
 .nav-item.active {
   color: #2563eb;
+}/* Esconde as abas Presença e Times na barra inferior para quem NÃO for Admin */
+body:not(.is-admin) .bottom-nav button:nth-child(2),
+body:not(.is-admin) .bottom-nav button:nth-child(3) {
+  display: none;
 }
