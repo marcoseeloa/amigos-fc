@@ -38,8 +38,10 @@
     </div>
   </div>
 
-  <!-- APLICATIVO PRINCIPAL (OCULTO ATÉ O LOGIN) -->
-  <!-- TOPO INTERNO COM ESCUDO E SAUDAÇÃO -->
+  <!-- APLICATIVO PRINCIPAL (SÓ APARECE APÓS O LOGIN) -->
+  <div id="app-principal" class="app-container" style="display: none;">
+    
+    <!-- TOPO INTERNO COM ESCUDO E SAUDAÇÃO -->
     <div class="user-header">
       <div class="avatar-container">
         <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
@@ -49,32 +51,6 @@
         <h2 id="nome-usuario-header">MARCOS</h2>
       </div>
     </div>
-    
-    <!-- BARRA LATERAL / MENU --
-   <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
-    <nav class="bottom-nav">
-      <button class="nav-item active" onclick="mostrarSecao('escalacao', this)">
-        <span class="icon">🏠</span>
-        <span class="label">INÍCIO</span>
-      </button>
-      <button class="nav-item" onclick="mostrarSecao('presenca', this)">
-        <span class="icon">✅</span>
-        <span class="label">PRESENÇA</span>
-      </button>
-      <button class="nav-item" onclick="mostrarSecao('elenco', this)">
-        <span class="icon">👥</span>
-        <span class="label">TIMES</span>
-      </button>
-
-      <button class="nav-item" onclick="mostrarSecao('estatisticas', this)">
-        <span class="icon">📊</span>
-        <span class="label">HISTÓRICO</span>
-      </button>
-      <button class="nav-item" onclick="fazerLogout()">
-        <span class="icon">👤</span>
-        <span class="label">SAIR</span>
-      </button>
-    </nav>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-content">
@@ -82,7 +58,7 @@
         <span class="badge-admin">Modo Administrador</span>
       </div>
 
-      <!-- SEÇÃO: ESCALAÇÃO -->
+      <!-- SEÇÃO: INÍCIO / ESCALAÇÃO -->
       <section id="escalacao" class="secao-conteudo">
         <div class="card">
           <h3>👥 Jogadores Disponíveis</h3>
@@ -105,38 +81,54 @@
         </div>
       </section>
 
-      <!-- SEÇÃO: ELENCO -->
-      <section id="elenco" class="secao-conteudo" style="display: none;">
-        <div class="card">
-          <h3>👥 Elenco Completo</h3>
-          <p>Gestão de jogadores cadastrados.</p>
-        </div>
-      </section>
-
-      <!-- SEÇÃO: ESTATÍSTICAS -->
-      <section id="estatisticas" class="secao-conteudo" style="display: none;">
-        <div class="card">
-          <h3>📊 Estatísticas da Temporada</h3>
-          <p>Artilharia e dados gerais do grupo.</p>
-        </div>
-      </section>
-
-      <!-- SEÇÃO: PRESENÇA & MENSALIDADE -->
+      <!-- SEÇÃO: PRESENÇA -->
       <section id="presenca" class="secao-conteudo" style="display: none;">
         <div class="card">
           <h3>💰 Presença & Mensalidade</h3>
-          <p>Controle financeiro do grupo.</p>
+          <p>Controle financeiro e confirmação de presença do grupo.</p>
         </div>
       </section>
 
-      <!-- SEÇÃO: PRÓXIMA PELADA -->
-      <section id="proxima-pelada" class="secao-conteudo" style="display: none;">
+      <!-- SEÇÃO: TIMES -->
+      <section id="elenco" class="secao-conteudo" style="display: none;">
         <div class="card">
-          <h3>📅 Próxima Pelada</h3>
-          <p>Informações de data, local e horário.</p>
+          <h3>👥 Elenco & Times</h3>
+          <p>Gestão de jogadores e sorteio das equipes.</p>
+        </div>
+      </section>
+
+      <!-- SEÇÃO: HISTÓRICO -->
+      <section id="estatisticas" class="secao-conteudo" style="display: none;">
+        <div class="card">
+          <h3>📊 Histórico & Estatísticas</h3>
+          <p>Artilharia e dados gerais do grupo.</p>
         </div>
       </section>
     </main>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA (DENTRO DO APP PRINCIPAL) -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" onclick="mostrarSecao('escalacao', this)">
+        <span class="icon">🏠</span>
+        <span class="label">INÍCIO</span>
+      </button>
+      <button class="nav-item" onclick="mostrarSecao('presenca', this)">
+        <span class="icon">✅</span>
+        <span class="label">PRESENÇA</span>
+      </button>
+      <button class="nav-item" onclick="mostrarSecao('elenco', this)">
+        <span class="icon">👥</span>
+        <span class="label">TIMES</span>
+      </button>
+      <button class="nav-item" onclick="mostrarSecao('estatisticas', this)">
+        <span class="icon">📊</span>
+        <span class="label">HISTÓRICO</span>
+      </button>
+      <button class="nav-item" onclick="fazerLogout()">
+        <span class="icon">👤</span>
+        <span class="label">SAIR</span>
+      </button>
+    </nav>
 
   </div>
 
