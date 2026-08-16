@@ -257,4 +257,25 @@ function inicializarDragAndDrop() {
   new Sortable(document.getElementById('disponiveis'), opcoesSortable);
   new Sortable(document.getElementById('time-azul'), opcoesSortable);
   new Sortable(document.getElementById('time-preto'), opcoesSortable);
+}function mostrarSecao(secaoId) {
+  // Esconde todas as seções do app
+  document.querySelectorAll('.secao-conteudo').forEach(secao => {
+    secao.style.display = 'none';
+  });
+
+  // Remove a classe 'active' de todos os botões do menu
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Exibe a seção desejada
+  const secaoAlvo = document.getElementById(secaoId);
+  if (secaoAlvo) {
+    secaoAlvo.style.display = 'block';
+  }
+
+  // Adiciona a classe 'active' no botão que foi clicado
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  }
 }
