@@ -287,4 +287,195 @@ body {
 
 .nav-item.active {
   color: #2563eb;
+}/* ESTILOS DOS CARDS DA TELA DE INÍCIO */
+.secao-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
+.card-pelada {
+  border-left: 4px solid #2563eb;
+}
+
+.pelada-info p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-top: 6px;
+}
+
+.pelada-info strong {
+  color: #38bdf8;
+}
+
+/* LISTA DE RANKING (ARTILHARIA E BOLA MURCHA) */
+.lista-ranking {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-ranking li {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #0b0f19;
+  border: 1px solid #1f2937;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.lista-ranking .pos {
+  width: 30px;
+  font-size: 0.9rem;
+}
+
+.lista-ranking .nome {
+  flex: 1;
+  color: #f8fafc;
+}
+
+.lista-ranking .qtd {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+/* CORES DOS PÓDIOS */
+.podio.ouro .pos { color: #facc15; }
+.podio.prata .pos { color: #94a3b8; }
+.podio.bronce .pos { color: #b45309; }
+
+.bola-murcha {
+  border-left: 4px solid #ef4444;
+}
+/* CONTAINER E CABEÇALHO DO PÓDIO */
+.card-podio-container {
+  background-color: #0d131f;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #1e293b;
+}
+
+.podio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.podio-title {
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.btn-ver-todos {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ESTRUTURA DOS JOGADORES NO PÓDIO */
+.podio-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-bottom: 8px;
+}
+
+.podio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 30%;
+}
+
+.coroa {
+  font-size: 1.2rem;
+  margin-bottom: -4px;
+}
+
+.posicao-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.pos-1 { color: #facc15; }
+.pos-2 { color: #38bdf8; }
+.pos-3 { color: #38bdf8; }
+
+/* FOTO E BORDAS */
+.avatar-podio {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid #334155;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background-color: #1e293b;
+}
+
+.avatar-podio img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-podio.destaque-1 {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #2563eb;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+/* NOME E GOLS */
+.nome-jogador {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.qtd-numero {
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.qtd-rotulo {
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.valor-destaque { color: #facc15; }
+.valor-secundario { color: #2563eb; }
+/* VARIANTES DE COR PARA O BOLA MURCHA */
+.title-red { color: #f87171; }
+.btn-red { color: #ef4444; }
+
+.pos-1-red { color: #ef4444; }
+.pos-2-red { color: #f87171; }
+.pos-3-red { color: #f87171; }
+
+.avatar-podio.avatar-red {
+  border-color: #7f1d1d;
+}
+
+.avatar-podio.destaque-1-red {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #ef4444;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.valor-red-destaque { color: #ef4444; }
+.valor-red { color: #f87171; }

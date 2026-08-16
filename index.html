@@ -59,28 +59,105 @@
       </div>
 
       <!-- SEÇÃO: INÍCIO / ESCALAÇÃO -->
+      <!-- SEÇÃO: INÍCIO (RESUMO) -->
       <section id="escalacao" class="secao-conteudo">
-        <div class="card">
-          <h3>👥 Jogadores Disponíveis</h3>
-          <ul class="lista-jogadores">
-            <li>DANDÃO <span class="drag-icon">:::</span></li>
-            <li>GUSTAVO <span class="drag-icon">:::</span></li>
-            <li>FLAVINHO <span class="drag-icon">:::</span></li>
-            <li>EVERTON <span class="drag-icon">:::</span></li>
-            <li>MARCOS <span class="drag-icon">:::</span></li>
-            <li>MARRECO <span class="drag-icon">:::</span></li>
-            <li>DECO <span class="drag-icon">:::</span></li>
-            <li>DANIEL <span class="drag-icon">:::</span></li>
-            <li>TIO DINHO <span class="drag-icon">:::</span></li>
-            <li>ERIC <span class="drag-icon">:::</span></li>
-            <li>GUSTAVO VALESCA <span class="drag-icon">:::</span></li>
-            <li>JOSUE <span class="drag-icon">:::</span></li>
-            <li>IGOR <span class="drag-icon">:::</span></li>
-            <li>MARCOS GRANIÇO <span class="drag-icon">:::</span></li>
-          </ul>
+        
+        <!-- CARD: PRÓXIMA PELADA -->
+        <div class="card card-pelada">
+          <h3>📅 Próxima Rodada</h3>
+          <div class="pelada-info">
+            <p><strong>Data:</strong> Domingo, 09:00</p>
+            <p><strong>Local:</strong> Arena Amigos F.C.</p>
+          </div>
         </div>
-      </section>
 
+        <!-- CARD: TOP 3 ARTILHEIROS (LAYOUT PÓDIO) -->
+<div class="card card-podio-container">
+  <div class="podio-header">
+    <span class="podio-title">RANKING GERAL - ARTILHEIROS</span>
+    <button class="btn-ver-todos" onclick="mostrarSecao('estatisticas', document.querySelectorAll('.nav-item')[3])">VER TODOS &gt;</button>
+  </div>
+
+  <div class="podio-body">
+    <!-- 2º LUGAR -->
+    <div class="podio-item segundo">
+      <span class="posicao-label pos-2">2º</span>
+      <div class="avatar-podio">
+        <img src="escudo.jpg" alt="THIAGO">
+      </div>
+      <span class="nome-jogador">THIAGO</span>
+      <span class="qtd-numero valor-secundario">23</span>
+      <span class="qtd-rotulo valor-secundario">GOLS</span>
+    </div>
+
+    <!-- 1º LUGAR -->
+    <div class="podio-item primeiro">
+      <div class="coroa">👑</div>
+      <span class="posicao-label pos-1">1º</span>
+      <div class="avatar-podio destaque-1">
+        <img src="escudo.jpg" alt="MARCOS">
+      </div>
+      <span class="nome-jogador">MARCOS</span>
+      <span class="qtd-numero valor-destaque">35</span>
+      <span class="qtd-rotulo valor-destaque">GOLS</span>
+    </div>
+
+    <!-- 3º LUGAR -->
+    <div class="podio-item terceiro">
+      <span class="posicao-label pos-3">3º</span>
+      <div class="avatar-podio">
+        <img src="escudo.jpg" alt="LUCAS">
+      </div>
+      <span class="nome-jogador">LUCAS</span>
+      <span class="qtd-numero valor-secundario">18</span>
+      <span class="qtd-rotulo valor-secundario">GOLS</span>
+    </div>
+  </div>
+</div>
+
+     <!-- CARD: TOP 3 BOLA MURCHA (LAYOUT PÓDIO) -->
+<div class="card card-podio-container bola-murcha-podio">
+  <div class="podio-header">
+    <span class="podio-title title-red">RANKING GERAL - BOLA MURCHA</span>
+    <button class="btn-ver-todos btn-red" onclick="mostrarSecao('estatisticas', document.querySelectorAll('.nav-item')[3])">VER TODOS &gt;</button>
+  </div>
+
+  <div class="podio-body">
+    <!-- 2º LUGAR -->
+    <div class="podio-item segundo">
+      <span class="posicao-label pos-2-red">2º</span>
+      <div class="avatar-podio avatar-red">
+        <img src="escudo.jpg" alt="DECO">
+      </div>
+      <span class="nome-jogador">DECO</span>
+      <span class="qtd-numero valor-red">2</span>
+      <span class="qtd-rotulo valor-red">VOTES</span>
+    </div>
+
+    <!-- 1º LUGAR -->
+    <div class="podio-item primeiro">
+      <div class="coroa">💩</div>
+      <span class="posicao-label pos-1-red">1º</span>
+      <div class="avatar-podio destaque-1-red">
+        <img src="escudo.jpg" alt="FLAVINHO">
+      </div>
+      <span class="nome-jogador">FLAVINHO</span>
+      <span class="qtd-numero valor-red-destaque">3</span>
+      <span class="qtd-rotulo valor-red-destaque">VOTES</span>
+    </div>
+
+    <!-- 3º LUGAR -->
+    <div class="podio-item terceiro">
+      <span class="posicao-label pos-3-red">3º</span>
+      <div class="avatar-podio avatar-red">
+        <img src="escudo.jpg" alt="MARRECO">
+      </div>
+      <span class="nome-jogador">MARRECO</span>
+      <span class="qtd-numero valor-red">1</span>
+      <span class="qtd-rotulo valor-red">VOTES</span>
+    </div>
+  </div>
+</div>   
       <!-- SEÇÃO: PRESENÇA -->
       <section id="presenca" class="secao-conteudo" style="display: none;">
         <div class="card">
