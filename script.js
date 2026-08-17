@@ -7,7 +7,7 @@ function realizarLogin(event) {
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('app-principal').style.display = 'flex';
     
-    // Atualiza nome exibido no topo
+    // Atualiza o nome do usuário no topo
     const nomeExibicao = usuarioInput.split('@')[0];
     document.getElementById('nome-usuario-header').textContent = nomeExibicao.toUpperCase();
 
@@ -24,7 +24,7 @@ function realizarLogin(event) {
       document.body.classList.remove('is-admin');
     }
 
-    // Abre a aba Início por padrão ao logar
+    // Abre a aba INÍCIO por padrão
     const primeiroBotao = document.querySelector('.bottom-nav .nav-item');
     mostrarSecao('escalacao', primeiroBotao);
   }
@@ -44,13 +44,13 @@ function mostrarSecao(secaoId, elementoClicado) {
     secao.style.display = 'none';
   });
 
-  // Remove a classe "active" dos botões
+  // Remove o estado ativo de todos os botões da barra
   const botoes = document.querySelectorAll('.nav-item');
   botoes.forEach(btn => {
     btn.classList.remove('active');
   });
 
-  // Mostra a seção desejada
+  // Exibe a seção solicitada
   const secaoAlvo = document.getElementById(secaoId);
   if (secaoAlvo) {
     secaoAlvo.style.display = 'flex';
