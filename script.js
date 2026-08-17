@@ -7,7 +7,7 @@ function realizarLogin(event) {
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('app-principal').style.display = 'flex';
     
-    // Atualiza o nome do usuário no topo
+    // Atualiza nome exibido no topo
     const nomeExibicao = usuarioInput.split('@')[0];
     document.getElementById('nome-usuario-header').textContent = nomeExibicao.toUpperCase();
 
@@ -24,7 +24,7 @@ function realizarLogin(event) {
       document.body.classList.remove('is-admin');
     }
 
-    // Garante que a primeira aba (INÍCIO) fique visível e ativa
+    // Abre a aba Início por padrão ao logar
     const primeiroBotao = document.querySelector('.bottom-nav .nav-item');
     mostrarSecao('escalacao', primeiroBotao);
   }
@@ -44,19 +44,19 @@ function mostrarSecao(secaoId, elementoClicado) {
     secao.style.display = 'none';
   });
 
-  // Remove a marcação ativa de todos os botões da barra
+  // Remove a classe "active" dos botões
   const botoes = document.querySelectorAll('.nav-item');
   botoes.forEach(btn => {
     btn.classList.remove('active');
   });
 
-  // Exibe a seção solicitada
+  // Mostra a seção desejada
   const secaoAlvo = document.getElementById(secaoId);
   if (secaoAlvo) {
     secaoAlvo.style.display = 'flex';
   }
 
-  // Marcar o botão clicado como ativo
+  // Ativa o botão clicado
   if (elementoClicado) {
     elementoClicado.classList.add('active');
   }
