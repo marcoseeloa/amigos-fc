@@ -50,6 +50,20 @@
         <h2 id="nome-usuario-header">MARCOS</h2>
       </div>
     </div>
+    <!-- TOPO INTERNO COM BOTÃO SAIR NO CANTO ESQUERDO -->
+    <div class="user-header">
+      <button class="btn-logout-topo" onclick="fazerLogout()" title="Sair">
+        🚪 <span>SAIR</span>
+      </button>
+
+      <div class="avatar-container">
+        <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
+      </div>
+      <div class="welcome-text">
+        <span class="greeting-subtitle">BEM-VINDO,</span>
+        <h2 id="nome-usuario-header">MARCOS</h2>
+      </div>
+    </div>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-content">
@@ -301,7 +315,7 @@
 
     </main>
 
-    <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA (SEM O BOTÃO SAIR) -->
     <nav class="bottom-nav">
       <button class="nav-item active" onclick="mostrarSecao('escalacao', this)">
         <span class="icon">🏠</span>
@@ -323,16 +337,10 @@
         <span class="icon">📊</span>
         <span class="label">HISTÓRICO</span>
       </button>
-      <!-- NOVO BOTÃO ADICIONADO -->
       <button class="nav-item" onclick="mostrarSecao('estatisticas-detalhas', this)">
         <span class="icon">📈</span>
         <span class="label">ESTATÍSTICA</span>
       </button>
-      <button class="nav-item" onclick="fazerLogout()">
-        <span class="icon">👤</span>
-        <span class="label">SAIR</span>
-      </button>
     </nav>
-
-    <script src="script.js?v=5.0"></script>
+    <script src="script.js?v=6.0"></script>
     

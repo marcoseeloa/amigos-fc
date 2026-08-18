@@ -597,3 +597,36 @@ body:not(.is-admin) .admin-only {
 .bottom-nav .nav-item .label {
   font-size: 0.65rem; /* Ajusta o tamanho da fonte para encaixar perfeitamente */
 }
+/* POSICIONAMENTO DO TOPO */
+.user-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+/* BOTÃO SAIR NO CANTO ESQUERDO DO TOPO */
+.btn-logout-topo {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-logout-topo:active {
+  background-color: #ef4444;
+  color: #fff;
+}
