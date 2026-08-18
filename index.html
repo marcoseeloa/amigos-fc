@@ -277,10 +277,18 @@
           <p>Acompanhe o registro geral do grupo.</p>
         </div>
 
-        <!-- CARD DE RESUMO DE PRESENÇAS E FALTAS -->
+        <!-- CARD DE RESUMO DE PRESENÇAS E FALTAS COM FILTRO DE MÊS -->
         <div class="card card-tabela-presenca">
           <div class="header-tabela-presenca">
             <h3>📋 Histórico de Faltas e Presenças</h3>
+          </div>
+
+          <!-- FILTRO DE MÊS / ANO -->
+          <div class="filtro-data-container" style="margin-bottom: 15px;">
+            <div class="input-data-group" style="width: 100%;">
+              <label for="filtro-mes-historico">Filtrar por Mês:</label>
+              <input type="month" id="filtro-mes-historico" onchange="atualizarHistoricoPresencas()">
+            </div>
           </div>
 
           <div class="tabela-scroll">
@@ -300,7 +308,7 @@
           </div>
         </div>
       </section>
-
+      
     <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
     <nav class="bottom-nav">
       <button class="nav-item active" onclick="mostrarSecao('escalacao', this)">

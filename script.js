@@ -170,25 +170,37 @@ function carregarPresencasPorData() {
   }
 }
 
-/* --- LÓGICA DO HISTÓRICO ACUMULADO --- */
+/* --- LÓGICA DO HISTÓRICO ACUMULADO COM FILTRO DE MÊS --- */
 
 function atualizarHistoricoPresencas() {
   const tbody = document.getElementById('historico-presencas-body');
   if (!tbody) return;
 
+  const inputMes = document.getElementById('filtro-mes-historico');
+  const mesSelecionado = inputMes ? inputMes.value : ''; // Formato AAAA-MM (ex: 2026-08)
+
   const resumo = {};
 
-  // Pega a lista base de jogadores cadastrados
+  // Pega a lista base de jogadores
   const listaJogadores = document.querySelectorAll('#lista-jogadores-presenca tr');
   listaJogadores.forEach(tr => {
     const nome = tr.getAttribute('data-jogador');
     resumo[nome] = { presencas: 0, faltas: 0 };
   });
 
-  // Percorre todo o localStorage procurando chaves de presença salvos
+  // Percorre todo o localStorage procurando chaves de presença
   for (let i = 0; i < localStorage.length; i++) {
     const chave = localStorage.key(i);
+    
+    // Verifica se é uma chave de presença
     if (chave.startsWith('presenca_')) {
+      const dataChave = chave.replace('presenca_', ''); // Pega a data AAAA-MM-DD
+      
+      // Se tiver filtro de mês selecionado, valida se a data começa com AAAA-MM
+      if (mesSelecionado && !dataChave.startsWith(mesSelecionado)) {
+        continue; // Pula as listas de outros meses
+      }
+
       const dados = JSON.parse(localStorage.getItem(chave));
       for (const jogador in dados) {
         if (resumo[jogador]) {
@@ -199,7 +211,7 @@ function atualizarHistoricoPresencas() {
     }
   }
 
-  // Desenha as linhas no histórico
+  // Desenha as linhas atualizadas na tabela do histórico
   tbody.innerHTML = '';
   for (const jogador in resumo) {
     const p = resumo[jogador].presencas;
@@ -217,12 +229,3 @@ function atualizarHistoricoPresencas() {
     tbody.appendChild(tr);
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  atualizarContadorPresenca();
-
-  const inputData = document.getElementById('data-pelada');
-  if (inputData) {
-    inputData.addEventListener('change', carregarPresencasPorData);
-  }
-});
