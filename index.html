@@ -240,6 +240,14 @@
         </div>
       </section>
 
+      <!-- SEÇÃO: ESTATÍSTICAS -->
+      <section id="estatisticas-detalhas" class="secao-conteudo" style="display: none;">
+        <div class="card">
+          <h3>📈 Estatísticas Avançadas</h3>
+          <p>Métricas de desempenho do grupo e dos jogadores.</p>
+        </div>
+      </section>
+
       <!-- SEÇÃO: HISTÓRICO -->
       <section id="estatisticas" class="secao-conteudo" style="display: none;">
         <div class="card">
@@ -315,13 +323,16 @@
         <span class="icon">📊</span>
         <span class="label">HISTÓRICO</span>
       </button>
+      <!-- NOVO BOTÃO ADICIONADO -->
+      <button class="nav-item" onclick="mostrarSecao('estatisticas-detalhas', this)">
+        <span class="icon">📈</span>
+        <span class="label">ESTATÍSTICA</span>
+      </button>
       <button class="nav-item" onclick="fazerLogout()">
         <span class="icon">👤</span>
         <span class="label">SAIR</span>
       </button>
     </nav>
 
-  </div>
-
-  <script src="script.js?v=4.0"></script>
-
+    <script src="script.js?v=5.0"></script>
+    
