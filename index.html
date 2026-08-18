@@ -164,16 +164,17 @@
       <section id="presenca" class="secao-conteudo" style="display: none;">
         
         <!-- FILTRO DE DATA DA PELADA -->
-<div class="card card-presenca-header">
-  <h3>📅 Selecionar Data da Pelada</h3>
-  <div class="filtro-data-container">
-    <div class="input-data-group">
-      <label for="data-pelada">Data do Jogo:</label>
-      <input type="date" id="data-pelada" value="2026-08-23">
-    </div>
-    <button class="btn-salvar-presenca admin-only" onclick="salvarListaPresenca()">Salvar Lista</button>
-  </div>
-</div>
+        <div class="card card-presenca-header">
+          <h3>📅 Selecionar Data da Pelada</h3>
+          <div class="filtro-data-container">
+            <div class="input-data-group">
+              <label for="data-pelada">Data do Jogo:</label>
+              <input type="date" id="data-pelada" value="2026-08-23">
+            </div>
+            <button class="btn-salvar-presenca admin-only" onclick="salvarListaPresenca()">Salvar Lista</button>
+          </div>
+        </div>
+
         <!-- LISTA DE JOGADORES -->
         <div class="card card-tabela-presenca">
           <div class="header-tabela-presenca">
@@ -194,29 +195,29 @@
               <tbody id="lista-jogadores-presenca">
                 <tr data-jogador="MARCOS">
                   <td class="nome-atleta">MARCOS</td>
-                  <td class="text-center"><span class="badge-status status-p">✓</span></td>
+                  <td class="text-center"><span class="badge-status status-p off">-</span></td>
                   <td class="text-center"><span class="badge-status status-f off">-</span></td>
                   <td class="text-center admin-only">
-                    <button class="btn-toggle p-btn active" onclick="marcarPresenca(this, 'P')">P</button>
+                    <button class="btn-toggle p-btn" onclick="marcarPresenca(this, 'P')">P</button>
                     <button class="btn-toggle f-btn" onclick="marcarPresenca(this, 'F')">F</button>
                   </td>
                 </tr>
                 <tr data-jogador="THIAGO">
                   <td class="nome-atleta">THIAGO</td>
-                  <td class="text-center"><span class="badge-status status-p">✓</span></td>
+                  <td class="text-center"><span class="badge-status status-p off">-</span></td>
                   <td class="text-center"><span class="badge-status status-f off">-</span></td>
                   <td class="text-center admin-only">
-                    <button class="btn-toggle p-btn active" onclick="marcarPresenca(this, 'P')">P</button>
+                    <button class="btn-toggle p-btn" onclick="marcarPresenca(this, 'P')">P</button>
                     <button class="btn-toggle f-btn" onclick="marcarPresenca(this, 'F')">F</button>
                   </td>
                 </tr>
                 <tr data-jogador="LUCAS">
                   <td class="nome-atleta">LUCAS</td>
                   <td class="text-center"><span class="badge-status status-p off">-</span></td>
-                  <td class="text-center"><span class="badge-status status-f">✗</span></td>
+                  <td class="text-center"><span class="badge-status status-f off">-</span></td>
                   <td class="text-center admin-only">
                     <button class="btn-toggle p-btn" onclick="marcarPresenca(this, 'P')">P</button>
-                    <button class="btn-toggle f-btn active" onclick="marcarPresenca(this, 'F')">F</button>
+                    <button class="btn-toggle f-btn" onclick="marcarPresenca(this, 'F')">F</button>
                   </td>
                 </tr>
                 <tr data-jogador="DECO">
