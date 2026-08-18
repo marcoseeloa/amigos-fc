@@ -7,29 +7,25 @@ function realizarLogin(event) {
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('app-principal').style.display = 'flex';
     
-    // Atualiza o nome do usuário no topo
     const nomeExibicao = usuarioInput.split('@')[0];
     document.getElementById('nome-usuario-header').textContent = nomeExibicao.toUpperCase();
 
     const badgeAdmin = document.querySelector('.badge-admin');
     
-    // VERIFICA PERMISSÃO (ADMIN VS JOGADOR)
     if (usuarioInput === 'admin@afc.com') {
       badgeAdmin.style.display = 'inline-block';
       badgeAdmin.textContent = 'Modo Administrador';
       document.body.classList.add('is-admin');
     } else {
-      // Jogador comum
       badgeAdmin.style.display = 'none';
       document.body.classList.remove('is-admin');
     }
 
-    // Abre a aba INÍCIO por padrão
     const primeiroBotao = document.querySelector('.bottom-nav .nav-item');
     mostrarSecao('escalacao', primeiroBotao);
 
-    // Carrega dados da data atual
     carregarPresencasPorData();
+    atualizarHistoricoPresencas();
   }
 }
 
@@ -59,9 +55,14 @@ function mostrarSecao(secaoId, elementoClicado) {
   if (elementoClicado) {
     elementoClicado.classList.add('active');
   }
+
+  // Se abrir a aba de histórico, recarrega o resumo acumulado
+  if (secaoId === 'estatisticas') {
+    atualizarHistoricoPresencas();
+  }
 }
 
-/* --- LÓGICA DOS BOTÕES E ABA DE PRESENÇA --- */
+/* --- ABA DE PRESENÇA --- */
 
 function marcarPresenca(botao, tipo) {
   const tr = botao.closest('tr');
@@ -70,26 +71,21 @@ function marcarPresenca(botao, tipo) {
   const statusP = tr.querySelector('.status-p');
   const statusF = tr.querySelector('.status-f');
 
-  // Se o botão já está selecionado, desmarca tudo (zera a linha)
   if (botao.classList.contains('active')) {
     limparLinhaJogador(tr);
   } else {
     if (tipo === 'P') {
       btnP.classList.add('active');
       btnF.classList.remove('active');
-      
       statusP.textContent = '✓';
       statusP.classList.remove('off');
-      
       statusF.textContent = '-';
       statusF.classList.add('off');
     } else if (tipo === 'F') {
       btnF.classList.add('active');
       btnP.classList.remove('active');
-      
       statusF.textContent = '✗';
       statusF.classList.remove('off');
-      
       statusP.textContent = '-';
       statusP.classList.add('off');
     }
@@ -106,15 +102,8 @@ function limparLinhaJogador(tr) {
 
   if (btnP) btnP.classList.remove('active');
   if (btnF) btnF.classList.remove('active');
-  
-  if (statusP) {
-    statusP.textContent = '-';
-    statusP.classList.add('off');
-  }
-  if (statusF) {
-    statusF.textContent = '-';
-    statusF.classList.add('off');
-  }
+  if (statusP) { statusP.textContent = '-'; statusP.classList.add('off'); }
+  if (statusF) { statusF.textContent = '-'; statusF.classList.add('off'); }
 }
 
 function zerarTabelaPresenca() {
@@ -129,7 +118,6 @@ function atualizarContadorPresenca() {
   if (contador) contador.textContent = confirmados;
 }
 
-// SALVAR NO NAVEGADOR COM A DATA SELECIONADA
 function salvarListaPresenca() {
   const dataSelecionada = document.getElementById('data-pelada').value;
   if (!dataSelecionada) {
@@ -151,10 +139,12 @@ function salvarListaPresenca() {
   });
 
   localStorage.setItem(`presenca_${dataSelecionada}`, JSON.stringify(dadosPresenca));
-  alert(`Lista salva com sucesso para o dia ${dataSelecionada}!`);
+  alert(`Lista salva com sucesso para a data ${dataSelecionada}!`);
+  
+  // Atualiza o histórico acumulado
+  atualizarHistoricoPresencas();
 }
 
-// CARREGAR A LISTA QUANDO MUDAR A DATA
 function carregarPresencasPorData() {
   zerarTabelaPresenca();
 
@@ -177,6 +167,54 @@ function carregarPresencasPorData() {
         if (btnF) marcarPresenca(btnF, 'F');
       }
     });
+  }
+}
+
+/* --- LÓGICA DO HISTÓRICO ACUMULADO --- */
+
+function atualizarHistoricoPresencas() {
+  const tbody = document.getElementById('historico-presencas-body');
+  if (!tbody) return;
+
+  const resumo = {};
+
+  // Pega a lista base de jogadores cadastrados
+  const listaJogadores = document.querySelectorAll('#lista-jogadores-presenca tr');
+  listaJogadores.forEach(tr => {
+    const nome = tr.getAttribute('data-jogador');
+    resumo[nome] = { presencas: 0, faltas: 0 };
+  });
+
+  // Percorre todo o localStorage procurando chaves de presença salvos
+  for (let i = 0; i < localStorage.length; i++) {
+    const chave = localStorage.key(i);
+    if (chave.startsWith('presenca_')) {
+      const dados = JSON.parse(localStorage.getItem(chave));
+      for (const jogador in dados) {
+        if (resumo[jogador]) {
+          if (dados[jogador] === 'P') resumo[jogador].presencas++;
+          if (dados[jogador] === 'F') resumo[jogador].faltas++;
+        }
+      }
+    }
+  }
+
+  // Desenha as linhas no histórico
+  tbody.innerHTML = '';
+  for (const jogador in resumo) {
+    const p = resumo[jogador].presencas;
+    const f = resumo[jogador].faltas;
+    const totalJogos = p + f;
+    const porc = totalJogos > 0 ? Math.round((p / totalJogos) * 100) : 0;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="nome-atleta">${jogador}</td>
+      <td class="text-center" style="color: #22c55e; font-weight: 800;">${p}</td>
+      <td class="text-center" style="color: #ef4444; font-weight: 800;">${f}</td>
+      <td class="text-center" style="color: #38bdf8; font-weight: 800;">${porc}%</td>
+    `;
+    tbody.appendChild(tr);
   }
 }
 

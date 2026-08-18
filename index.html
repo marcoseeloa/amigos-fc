@@ -274,10 +274,32 @@
       <section id="estatisticas" class="secao-conteudo" style="display: none;">
         <div class="card">
           <h3>📊 Histórico & Estatísticas</h3>
-          <p>Artilharia completa e dados gerais do grupo.</p>
+          <p>Acompanhe o registro geral do grupo.</p>
+        </div>
+
+        <!-- CARD DE RESUMO DE PRESENÇAS E FALTAS -->
+        <div class="card card-tabela-presenca">
+          <div class="header-tabela-presenca">
+            <h3>📋 Histórico de Faltas e Presenças</h3>
+          </div>
+
+          <div class="tabela-scroll">
+            <table class="tabela-presenca">
+              <thead>
+                <tr>
+                  <th class="col-jogador">Jogador</th>
+                  <th class="col-status text-center">Presenças</th>
+                  <th class="col-status text-center">Faltas</th>
+                  <th class="col-status text-center">% Presença</th>
+                </tr>
+              </thead>
+              <tbody id="historico-presencas-body">
+                <!-- Preenchido automaticamente via JavaScript -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
-    </main>
 
     <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
     <nav class="bottom-nav">
