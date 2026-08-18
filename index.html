@@ -29,19 +29,18 @@
         <button type="submit" class="btn-login">Entrar</button>
       </form>
 
-      <!-- CAIXA DE CONTAS DE TESTE -->
       <div class="test-accounts">
         <p class="test-title">Contas de teste:</p>
         <p>🔑 <strong>Admin:</strong> <code>admin@afc.com</code> / <code>123</code></p>
-        <p>⚽ <strong>Jogador (ex: DANDÃO):</strong> <code>dandao@afc.com</code> / <code>123</code></p>
+        <p>⚽ <strong>Jogador:</strong> <code>dandao@afc.com</code> / <code>123</code></p>
       </div>
     </div>
   </div>
 
-  <!-- APLICATIVO PRINCIPAL (SÓ APARECE APÓS O LOGIN) -->
+  <!-- APLICATIVO PRINCIPAL -->
   <div id="app-principal" class="app-container" style="display: none;">
     
-    <!-- TOPO INTERNO COM ESCUDO E SAUDAÇÃO -->
+    <!-- TOPO INTERNO -->
     <div class="user-header">
       <div class="avatar-container">
         <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
@@ -58,10 +57,8 @@
         <span class="badge-admin">Modo Administrador</span>
       </div>
 
-      <!-- SEÇÃO: INÍCIO (RESUMO & RANKINGS) -->
+      <!-- SEÇÃO: INÍCIO -->
       <section id="escalacao" class="secao-conteudo">
-        
-        <!-- CARD: PRÓXIMA PELADA -->
         <div class="card card-pelada">
           <h3>📅 Próxima Rodada</h3>
           <div class="pelada-info">
@@ -70,7 +67,7 @@
           </div>
         </div>
 
-        <!-- CARD: TOP 3 ARTILHEIROS (LAYOUT PÓDIO) -->
+        <!-- RANKING ARTILHEIROS -->
         <div class="card card-podio-container">
           <div class="podio-header">
             <span class="podio-title">RANKING GERAL - ARTILHEIROS</span>
@@ -78,35 +75,24 @@
           </div>
 
           <div class="podio-body">
-            <!-- 2º LUGAR -->
             <div class="podio-item segundo">
               <span class="posicao-label pos-2">2º</span>
-              <div class="avatar-podio">
-                <img src="escudo.jpg" alt="THIAGO">
-              </div>
+              <div class="avatar-podio"><img src="escudo.jpg" alt="THIAGO"></div>
               <span class="nome-jogador">THIAGO</span>
               <span class="qtd-numero valor-secundario">23</span>
               <span class="qtd-rotulo valor-secundario">GOLS</span>
             </div>
-
-            <!-- 1º LUGAR -->
             <div class="podio-item primeiro">
               <div class="coroa">👑</div>
               <span class="posicao-label pos-1">1º</span>
-              <div class="avatar-podio destaque-1">
-                <img src="escudo.jpg" alt="MARCOS">
-              </div>
+              <div class="avatar-podio destaque-1"><img src="escudo.jpg" alt="MARCOS"></div>
               <span class="nome-jogador">MARCOS</span>
               <span class="qtd-numero valor-destaque">35</span>
               <span class="qtd-rotulo valor-destaque">GOLS</span>
             </div>
-
-            <!-- 3º LUGAR -->
             <div class="podio-item terceiro">
               <span class="posicao-label pos-3">3º</span>
-              <div class="avatar-podio">
-                <img src="escudo.jpg" alt="LUCAS">
-              </div>
+              <div class="avatar-podio"><img src="escudo.jpg" alt="LUCAS"></div>
               <span class="nome-jogador">LUCAS</span>
               <span class="qtd-numero valor-secundario">18</span>
               <span class="qtd-rotulo valor-secundario">GOLS</span>
@@ -114,7 +100,7 @@
           </div>
         </div>
 
-        <!-- CARD: TOP 3 BOLA MURCHA (LAYOUT PÓDIO) -->
+        <!-- RANKING BOLA MURCHA -->
         <div class="card card-podio-container bola-murcha-podio">
           <div class="podio-header">
             <span class="podio-title title-red">RANKING GERAL - BOLA MURCHA</span>
@@ -122,48 +108,34 @@
           </div>
 
           <div class="podio-body">
-            <!-- 2º LUGAR -->
             <div class="podio-item segundo">
               <span class="posicao-label pos-2-red">2º</span>
-              <div class="avatar-podio avatar-red">
-                <img src="escudo.jpg" alt="DECO">
-              </div>
+              <div class="avatar-podio avatar-red"><img src="escudo.jpg" alt="DECO"></div>
               <span class="nome-jogador">DECO</span>
               <span class="qtd-numero valor-red">2</span>
               <span class="qtd-rotulo valor-red">JOGOS</span>
             </div>
-
-            <!-- 1º LUGAR -->
             <div class="podio-item primeiro">
               <div class="coroa">⚽</div>
               <span class="posicao-label pos-1-red">1º</span>
-              <div class="avatar-podio destaque-1-red">
-                <img src="escudo.jpg" alt="FLAVINHO">
-              </div>
+              <div class="avatar-podio destaque-1-red"><img src="escudo.jpg" alt="FLAVINHO"></div>
               <span class="nome-jogador">FLAVINHO</span>
               <span class="qtd-numero valor-red-destaque">3</span>
               <span class="qtd-rotulo valor-red-destaque">JOGOS</span>
             </div>
-
-            <!-- 3º LUGAR -->
             <div class="podio-item terceiro">
               <span class="posicao-label pos-3-red">3º</span>
-              <div class="avatar-podio avatar-red">
-                <img src="escudo.jpg" alt="MARRECO">
-              </div>
+              <div class="avatar-podio avatar-red"><img src="escudo.jpg" alt="MARRECO"></div>
               <span class="nome-jogador">MARRECO</span>
               <span class="qtd-numero valor-red">1</span>
               <span class="qtd-rotulo valor-red">JOGOS</span>
             </div>
           </div>
         </div>
-
       </section>
 
       <!-- SEÇÃO: PRESENÇA -->
       <section id="presenca" class="secao-conteudo" style="display: none;">
-        
-        <!-- FILTRO DE DATA DA PELADA -->
         <div class="card card-presenca-header">
           <h3>📅 Selecionar Data da Pelada</h3>
           <div class="filtro-data-container">
@@ -175,7 +147,6 @@
           </div>
         </div>
 
-        <!-- LISTA DE JOGADORES -->
         <div class="card card-tabela-presenca">
           <div class="header-tabela-presenca">
             <h3>📋 Chamada dos Jogadores</h3>
@@ -251,7 +222,6 @@
             </table>
           </div>
         </div>
-
       </section>
 
       <!-- SEÇÃO: MENSALIDADE -->
@@ -277,17 +247,29 @@
           <p>Acompanhe o registro geral do grupo.</p>
         </div>
 
-        <!-- CARD DE RESUMO DE PRESENÇAS E FALTAS COM FILTRO DE MÊS -->
         <div class="card card-tabela-presenca">
           <div class="header-tabela-presenca">
             <h3>📋 Histórico de Faltas e Presenças</h3>
           </div>
 
-          <!-- FILTRO DE MÊS / ANO -->
           <div class="filtro-data-container" style="margin-bottom: 15px;">
             <div class="input-data-group" style="width: 100%;">
               <label for="filtro-mes-historico">Filtrar por Mês:</label>
-              <input type="month" id="filtro-mes-historico" onchange="atualizarHistoricoPresencas()">
+              <select id="filtro-mes-historico" class="select-filtro-custom" onchange="atualizarHistoricoPresencas()">
+                <option value="">Geral (Todos os Meses)</option>
+                <option value="2026-01">Janeiro / 2026</option>
+                <option value="2026-02">Fevereiro / 2026</option>
+                <option value="2026-03">Março / 2026</option>
+                <option value="2026-04">Abril / 2026</option>
+                <option value="2026-05">Maio / 2026</option>
+                <option value="2026-06">Junho / 2026</option>
+                <option value="2026-07">Julho / 2026</option>
+                <option value="2026-08" selected>Agosto / 2026</option>
+                <option value="2026-09">Setembro / 2026</option>
+                <option value="2026-10">Outubro / 2026</option>
+                <option value="2026-11">Novembro / 2026</option>
+                <option value="2026-12">Dezembro / 2026</option>
+              </select>
             </div>
           </div>
 
@@ -302,12 +284,14 @@
                 </tr>
               </thead>
               <tbody id="historico-presencas-body">
-                <!-- Preenchido automaticamente via JavaScript -->
+                <!-- Preenchido via JavaScript -->
               </tbody>
             </table>
           </div>
         </div>
       </section>
+
+    </main>
 
     <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA -->
     <nav class="bottom-nav">
@@ -339,7 +323,6 @@
 
   </div>
 
-  <script src="script.js?v=2.0"></script>
-
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
