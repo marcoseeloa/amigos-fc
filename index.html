@@ -40,19 +40,23 @@
   <!-- APLICATIVO PRINCIPAL -->
   <div id="app-principal" class="app-container" style="display: none;">
     
-    <!-- TOPO INTERNO COM BOTÃO SAIR NO CANTO ESQUERDO -->
+    <!-- TOPO INTERNO COM BOTÃO SAIR NO CANTO DIREITO SUPERIOR -->
     <div class="user-header">
-      <button class="btn-logout-topo" onclick="fazerLogout()" title="Sair">
-        🚪 <span>SAIR</span>
-      </button>
+      <div class="user-header-center">
+        <div class="avatar-container">
+          <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
+        </div>
+        <div class="welcome-text">
+          <span class="greeting-subtitle">BEM-VINDO,</span>
+          <h2 id="nome-usuario-header">ADMIN</h2>
+        </div>
+      </div>
 
-      <div class="avatar-container">
-        <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
-      </div>
-      <div class="welcome-text">
-        <span class="greeting-subtitle">BEM-VINDO,</span>
-        <h2 id="nome-usuario-header">MARCOS</h2>
-      </div>
+      <!-- BOTÃO SAIR NO CANTO DIREITO SUPERIOR -->
+      <button class="btn-logout-pill" onclick="fazerLogout()">
+        <span class="icon-logout">🚪</span>
+        <span>SAIR</span>
+      </button>
     </div>
 
     <!-- CONTEÚDO PRINCIPAL -->
