@@ -364,6 +364,135 @@ body {
 .valor-red-destaque { color: #ef4444; }
 .valor-red { color: #f87171; }
 
+/* ESTILOS DA ABA PRESENÇA */
+.filtro-data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.input-data-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.input-data-group label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.input-data-group input[type="date"] {
+  background-color: #0b0f19;
+  border: 1px solid #1f2937;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.btn-salvar-presenca {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.header-tabela-presenca {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.contador-presenca {
+  font-size: 0.75rem;
+  color: #38bdf8;
+  background-color: #1e293b;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.tabela-scroll {
+  overflow-x: auto;
+}
+
+.tabela-presenca {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabela-presenca th, 
+.tabela-presenca td {
+  padding: 10px 6px;
+  border-bottom: 1px solid #1f2937;
+  font-size: 0.8rem;
+}
+
+.tabela-presenca th {
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.nome-atleta {
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.text-center { text-align: center; }
+
+/* BADGES DE STATUS (P OU F) */
+.badge-status {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.status-p { background-color: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.status-f { background-color: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.badge-status.off { background-color: transparent; color: #4b5563; }
+
+/* BOTÕES DE MARCAÇÃO PARA O ADMIN */
+.btn-toggle {
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+.btn-toggle.p-btn.active {
+  background-color: #16a34a;
+  color: #ffffff;
+  border-color: #22c55e;
+}
+
+.btn-toggle.f-btn.active {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
 /* BARRA DE NAVEGAÇÃO INFERIOR FIXA */
 .bottom-nav {
   position: fixed;
@@ -411,9 +540,13 @@ body {
   color: #2563eb;
 }
 
-/* REGRAS PARA ESCONDER ABAS DO JOGADOR (PRESENÇA, MENSALIDADE, TIMES) */
+/* REGRAS DE VISIBILIDADE PARA JOGADOR COMUM X ADMIN */
 body:not(.is-admin) .bottom-nav button:nth-child(2),
 body:not(.is-admin) .bottom-nav button:nth-child(3),
 body:not(.is-admin) .bottom-nav button:nth-child(4) {
   display: none;
+}
+
+body:not(.is-admin) .admin-only {
+  display: none !important;
 }

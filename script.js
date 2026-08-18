@@ -61,3 +61,38 @@ function mostrarSecao(secaoId, elementoClicado) {
     elementoClicado.classList.add('active');
   }
 }
+
+// LOGICA DA ABA DE PRESENÇA
+function marcarPresenca(botao, tipo) {
+  const tr = botao.closest('tr');
+  const btnP = tr.querySelector('.p-btn');
+  const btnF = tr.querySelector('.f-btn');
+  const statusP = tr.querySelector('.status-p');
+  const statusF = tr.querySelector('.status-f');
+
+  if (tipo === 'P') {
+    btnP.classList.add('active');
+    btnF.classList.remove('active');
+    statusP.textContent = '✓';
+    statusP.classList.remove('off');
+    statusF.textContent = '-';
+    statusF.classList.add('off');
+  } else {
+    btnF.classList.add('active');
+    btnP.classList.remove('active');
+    statusF.textContent = '✗';
+    statusF.classList.remove('off');
+    statusP.textContent = '-';
+    statusP.classList.add('off');
+  }
+
+  atualizarContadorPresenca();
+}
+
+function atualizarContadorPresenca() {
+  const confirmados = document.querySelectorAll('.tabela-presenca .p-btn.active').length;
+  const contador = document.getElementById('total-confirmados');
+  if (contador) contador.textContent = confirmados;
+}
+
+document.addEventListener('DOMContentLoaded', atualizarContadorPresenca);
