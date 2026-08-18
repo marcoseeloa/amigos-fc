@@ -40,16 +40,6 @@
   <!-- APLICATIVO PRINCIPAL -->
   <div id="app-principal" class="app-container" style="display: none;">
     
-    <!-- TOPO INTERNO -->
-    <div class="user-header">
-      <div class="avatar-container">
-        <img src="escudo.jpg" alt="Escudo Amigos F.C." class="user-avatar">
-      </div>
-      <div class="welcome-text">
-        <span class="greeting-subtitle">BEM-VINDO,</span>
-        <h2 id="nome-usuario-header">MARCOS</h2>
-      </div>
-    </div>
     <!-- TOPO INTERNO COM BOTÃO SAIR NO CANTO ESQUERDO -->
     <div class="user-header">
       <button class="btn-logout-topo" onclick="fazerLogout()" title="Sair">
@@ -254,21 +244,8 @@
         </div>
       </section>
 
-      <!-- SEÇÃO: ESTATÍSTICAS -->
-      <section id="estatisticas-detalhas" class="secao-conteudo" style="display: none;">
-        <div class="card">
-          <h3>📈 Estatísticas Avançadas</h3>
-          <p>Métricas de desempenho do grupo e dos jogadores.</p>
-        </div>
-      </section>
-
       <!-- SEÇÃO: HISTÓRICO -->
       <section id="estatisticas" class="secao-conteudo" style="display: none;">
-        <div class="card">
-          <h3>📊 Histórico & Estatísticas</h3>
-          <p>Acompanhe o registro geral do grupo.</p>
-        </div>
-
         <div class="card card-tabela-presenca">
           <div class="header-tabela-presenca">
             <h3>📋 Histórico de Faltas e Presenças</h3>
@@ -313,6 +290,14 @@
         </div>
       </section>
 
+      <!-- SEÇÃO: ESTATÍSTICA -->
+      <section id="estatisticas-detalhas" class="secao-conteudo" style="display: none;">
+        <div class="card">
+          <h3>📈 Estatísticas Avançadas</h3>
+          <p>Métricas de desempenho do grupo e dos jogadores.</p>
+        </div>
+      </section>
+
     </main>
 
     <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA (SEM O BOTÃO SAIR) -->
@@ -342,5 +327,9 @@
         <span class="label">ESTATÍSTICA</span>
       </button>
     </nav>
-    <script src="script.js?v=6.0"></script>
-    
+
+  </div>
+
+  <script src="script.js?v=6.0"></script>
+</body>
+</html>
