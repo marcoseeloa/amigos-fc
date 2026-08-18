@@ -14,13 +14,16 @@ body {
   min-height: 100vh;
 }
 
-/* TELA DE LOGIN */
+/* ==========================================
+   TELA DE LOGIN (ESTILO ORIGINAL RESTAURADO)
+   ========================================== */
 .login-container {
   width: 100%;
   max-width: 400px;
   padding: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .login-box {
@@ -39,7 +42,8 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #38bdf8;
-  margin-bottom: 12px;
+  margin: 0 auto 12px auto;
+  display: block;
 }
 
 .login-box h2 {
@@ -94,6 +98,11 @@ body {
   border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
+  transition: opacity 0.2s;
+}
+
+.btn-login:active {
+  opacity: 0.8;
 }
 
 .test-accounts {
@@ -111,7 +120,9 @@ body {
   color: #d1d5db;
 }
 
-/* APP PRINCIPAL */
+/* ==========================================
+   APP PRINCIPAL & ESTRUTURA
+   ========================================== */
 .app-container {
   width: 100%;
   max-width: 480px;
@@ -174,7 +185,7 @@ body {
   color: #f8fafc;
 }
 
-/* BOTÃO SAIR NO CANTO DIREITO (IGUAL REFERÊNCIA) */
+/* BOTÃO SAIR NO CANTO DIREITO (PÍLULA) */
 .btn-logout-pill {
   position: absolute;
   right: 15px;
