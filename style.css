@@ -580,3 +580,20 @@ body:not(.is-admin) .admin-only {
   color: #f8fafc;
   padding: 10px;
 }
+/* AJUSTE PARA A BARRA INFERIOR COM 7 BOTEIS */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: auto; /* Permite rolar para o lado se a tela for muito pequena */
+}
+
+.bottom-nav .nav-item {
+  flex: 1;
+  min-width: 55px;
+  padding: 6px 2px;
+}
+
+.bottom-nav .nav-item .label {
+  font-size: 0.65rem; /* Ajusta o tamanho da fonte para encaixar perfeitamente */
+}
